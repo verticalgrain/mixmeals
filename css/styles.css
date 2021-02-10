@@ -1,0 +1,542 @@
+:root {
+	--color-canvas: #f2f2f2;
+	--color-base: #414141;
+	--color-brand: #000;
+	--color-gray-light: rgba(#000,0.2);
+	--color-gray-mid: rgba(#000,0.45);
+	--color-gray-dark: rgba(#000,0.7);
+	--color-green: #9addb7;
+	--color-green-light: rgba(#9addb7,0.5);
+	--color-green-dark: #0a4979;
+	--color-red: #f42d0c;
+	--color-yellow: #ffdc73;
+	--color-carrot: #FD830C;
+
+	--space-unit: 20px;
+	--space-unit-mid: 10px;
+
+	--font-serif: Georgia, serif;
+	--font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+	--heading-3: 22px;
+
+	--breakpoint-large: 1200px;
+	--breakpoint-medium: 1000px;
+	--breakpoint-small: 767px;
+	--breakpoint-xsmall: 600px;
+	--breakpoint-xxsmall: 400px;
+}
+
+:root .theme--dark {
+
+}
+
+:root .theme--light {
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var( --font-sans );
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var( --color-base );
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: break-word;
+    height: auto;
+}
+
+html {
+	margin: var( --space-unit );
+	background: white;
+}
+
+html:before, html:after {
+    content: " ";
+    width: 100%;
+    height: var( --space-unit );
+    background: white;
+    position: fixed;
+    z-index: 26;
+    top: 0;
+    left: 0;
+}
+
+@media ( max-width: var( --breakpoint-small ) ) {
+	html:before, html:after {
+		height: var( --space-unit-mid );
+	}
+}
+
+html:after {
+	top: initial;
+	bottom: 0;
+}
+
+body {
+	min-height: 100%;
+	background: var( --color-canvas );
+	padding: var( --space-unit-mid );
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+.l-container-wrapper {
+	width: 100%;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+	zoom: 1;
+}
+
+.l-container-wrapper:after,
+.l-container:after {
+	content:" ";
+	display: block;
+	clear: both;
+}
+
+.l-container {
+	width: 100%;
+	max-width: 1440px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	padding-left: 20px;
+	padding-right: 20px;
+	zoom: 1;
+}
+
+.l-container--centered {
+	text-align: center;
+}
+
+.l-container--centered 	div[class*='l-col--'] {
+	float: none !important;
+	display:inline-block;
+	vertical-align:top;
+}
+
+.l-container--fullwidth {
+	max-width: 100%;
+}
+
+.l-no-gutter {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.l-col {
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	box-sizing: inherit;
+}
+
+@media (max-width: 767px) {
+	.l-col {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.l-col--12 {
+	width: 100%;
+}
+
+.l-col--6 {
+	width: 50%;
+}
+
+@media (max-width: 767px) {
+	div[class*='l-col--'] {
+		width: 100%;
+	}
+}
+
+.l-margin-bottom-1 {
+	margin-bottom: var( --space-unit );
+}
+
+.l-margin-bottom-2 {
+	margin-bottom: calc( var( --space-unit ) * 2);
+}
+
+.l-margin-top-1 {
+	margin-top: var( --space-unit );
+}
+
+.l-padding-top-2 {
+	padding-top: calc( var( --space-unit ) * 2);
+}
+
+.heading-1 {
+	font-size: 32px;
+	line-height: 160%;
+	font-weight: 300;
+	font-family: var( --font-serif );
+	letter-spacing: 0.075em;
+}
+
+@media (max-width: 767px) {
+	.heading-1 {
+		font-size: 28px;
+	}
+}
+
+.card {
+	display: inline-block;
+	padding: 10px;
+	width: 100%;
+}
+
+.card__link {
+	text-decoration: none;
+	color: var( --color-base );
+}
+
+.card--recipe {
+	padding: 10px;
+	margin-bottom: 0;
+	border-radius: 2px;
+	display: inline-block;
+}
+
+.card--recipe .card__content {
+	display: block;
+	width: 100%;
+	padding: var( --space-unit ) var( --space-unit-mid ) 25px;
+	background: white;
+	text-align: center;
+}
+
+.card--recipe .card__title {
+	display: block;
+	width: 100%;
+	margin-bottom: 3px;
+	font-size: var( --heading-3 );
+	font-weight: 300;
+	letter-spacing: 0.015em;
+}
+
+.card__image {
+	line-height: 0;
+	font-size: 0;
+}
+
+.card__image img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+.list-recipes {
+	column-count: 5;
+	column-gap: 0;
+}
+
+@media ( max-width: 1200px ) {
+	.list-recipes {
+		column-count: 4;
+	}
+}
+
+@media ( max-width: 1000px ) {
+	.list-recipes {
+		column-count: 3;
+	}
+}
+
+@media ( max-width: 767px ) {
+	.list-recipes {
+		column-count: 2;
+	}
+}
+
+@media ( max-width: 600px ) {
+	.list-recipes {
+		column-count: initial;
+		column-gap: initial;
+	}
+}
+
+.recipe {
+
+}
+.recipe {
+	transition-duration: 0.2s;
+	position: relative;
+}
+.recipe__anchor {
+	position: absolute;
+	top: -20px;
+	width: 1px;
+	height: 1px;
+	display: block;
+}
+.recipe__pointer {
+	width: 60px;
+	height: 100px;
+	padding: 10px;
+	position: absolute;
+	right: var( --space-unit-mid );
+	top: var( --space-unit-mid );
+	transition-duration: 0.2s;
+}
+.recipe__pointer svg {
+	width: 40px;
+}
+.recipe__pointer path {
+	transition-duration: 0.3s;
+}
+.recipe__pointer:hover {
+	transform: translateY(-5px);
+}
+.recipe__pointer svg .carrot_fill {
+	fill: #FD830C;
+}
+
+.recipe__name-wrapper {
+	display: inline-block;
+	position: relative;
+}
+.recipe__name {
+	display: inline;
+}
+
+.recipe .image {
+	padding-bottom: var( --space-unit );
+	margin: 0 auto;
+	display: block;
+	max-width: 800px;
+}
+
+.recipe .image img {
+	width: 100%;
+	background-color: var( --color-gray-light );
+}
+
+.details {
+	opacity: 1;
+	height: auto;
+	width: 100%;
+	display: block;
+	z-index: 19;
+	left: 0;
+	transition-duration: 0.2s;
+	padding: 0;
+}
+.details__recipe {
+	width: 100%;
+	position: relative;
+	margin: 0;
+	padding: 30px 40px;
+	background: var( --color-green );
+	height: 100%;
+	display: block;
+}
+@media (max-width: 767px ) {
+	.details__recipe {
+		border-right: 0px;
+		border-bottom: 1px solid var( --color-gray-light );
+	}
+}
+.details__administration {
+	float: left;
+	width: 100%;
+	background: no-repeat 0px center url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22iso-8859-1%22%3F%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%20512%20512%22%20style%3D%22enable-background%3Anew%200%200%20512%20512%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%3E%0A%09%3Cg%3E%0A%09%09%3Cg%3E%0A%09%09%09%3Cpath%20d%3D%22M256%2C0c-68.584%2C0-124.38%2C55.796-124.38%2C124.38v2.536v15.208v276.784h15.208V142.123h218.343v354.669H146.828v-57.606%0A%09%09%09%09H131.62V512H380.38V142.123v-15.208v-2.536C380.38%2C55.796%2C324.584%2C0%2C256%2C0z%20M365.172%2C126.915H146.828v-2.536%0A%09%09%09%09c0-60.197%2C48.974-109.172%2C109.172-109.172c60.198%2C0%2C109.172%2C48.975%2C109.172%2C109.172V126.915z%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22160.535%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22160.535%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22160.535%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22160.535%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22160.535%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22160.535%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22194.165%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22194.165%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22194.165%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22194.165%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22194.165%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22194.165%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22227.794%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22227.794%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22227.794%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22227.794%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22227.794%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22227.794%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22261.414%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22261.414%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22261.414%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22261.414%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22261.414%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22261.414%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22295.044%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22295.044%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22295.044%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22295.044%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22295.044%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22295.044%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22328.674%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22328.674%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22328.674%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22328.674%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22328.674%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22328.674%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22362.293%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22362.293%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22362.293%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22362.293%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22362.293%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22362.293%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22395.923%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22395.923%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22395.923%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22395.923%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22395.923%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22395.923%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22429.543%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22429.543%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22429.543%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22429.543%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22429.543%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22429.543%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22159.501%22%20y%3D%22463.172%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22194.479%22%20y%3D%22463.172%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22229.467%22%20y%3D%22463.172%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22264.445%22%20y%3D%22463.172%22%20width%3D%2218.085%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22299.424%22%20y%3D%22463.172%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%09%3Crect%20x%3D%22334.412%22%20y%3D%22463.172%22%20width%3D%2218.086%22%20height%3D%2215.208%22/%3E%0A%09%09%3C/g%3E%0A%09%3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E%0A);
+	background-size: 80px auto;
+	border: 2px solid var( --color-green );
+}
+.details__administration-content {
+	padding-left: 50px;
+	text-align: center;
+	font-size: 18px;
+}
+.details__sharing {
+	width: 100%;
+	max-width: 300px;
+	display: inline-block;
+}
+.details__author,
+.details__published {
+	display: inline-block;
+	min-width: 150px;
+}
+@media (max-width: 767px) {
+	.details__author,
+	.details__published {
+		padding: 0 10px;
+	}
+}
+.details__author .heading4,
+.details__published .heading4 {
+	display: block;
+}
+.details__categories li {
+	display: inline;
+}
+.details__description {
+	width: 100%;
+	max-width: 630px;
+	display: inline-block;
+	font-size: 18px;
+}
+.details__description p {
+	font-size: 18px;
+}
+.details__tags,
+.details__nutrition {
+	width: auto;
+	text-align: center;
+	margin-bottom: 25px;
+}
+.details__tags .heading4,
+.details__nutrition .heading4 {
+	margin-bottom: 7px;
+}
+
+.ingredients {
+	display: inline-block;
+	width: 100%;
+	max-width: 830px;
+	padding-left: calc( var( --space-unit ) * 3 );
+}
+
+@media (max-width: 767px) {
+	.ingredients {
+		padding-left: 0;
+	}
+}
+
+/* Ingredient */
+.ingredient {
+	text-align: left;
+	position: relative;
+	float: left;
+	width: 50%;
+	margin-bottom: var( --space-unit );
+	font-size: 18px;
+	line-height: 100%;
+	font-family: var( --font-sans );
+	font-weight: 400;
+}
+
+@media (max-width: 767px) {
+	.ingredient {
+		width: 100%;
+	}
+}
+
+.ingredient:before {
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 1;
+	bottom: 3px;
+	width: 100%;
+	height: 20px;
+	border-bottom: 2px dotted rgba(0,0,0,0.5);
+}
+
+.ingredient__name, .ingredient__unit, .ingredient__quantity {
+	display: inline;
+}
+
+.ingredient__name, .ingredient__amount {
+	padding: 0;
+	background: #f2f2f2;
+	position: relative;
+	z-index: 3;
+}
+
+.ingredient__name {
+	float: left;
+	padding-right: 3px;
+}
+
+.ingredient__amount {
+	float: right;
+	padding-left: 3px;
+	padding-right: calc( var( --space-unit ) * 3 );
+}
+
+@media (max-width: 767px) {
+	.ingredient__amount {
+		padding-right: 0;
+	}
+}
+
+.ingredient__shopping, .ingredient__shopping--add, .ingredient__shopping--remove {
+	position: absolute;
+	z-index: 99;
+}
+
+.instructions {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	max-width: 640px;
+}
+
+.instruction {
+	text-align: left;
+	margin-bottom: 18px;
+}
+
+.instruction__ingredient {
+	text-indent: 15px;
+	font-weight: 600;
+}
+
+.image {
+	line-height: 0;
+}
+
+.image img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+.masthead {
+	width: 100%;
+	width: 100%;
+	top: 0px;
+	z-index: 29;
+	left: 0;
+}
+
+@media (max-width: 767px) {
+
+}
+
+.logo {
+	width: 150px;
+	height: 40px;
+	margin: 3px 0 0 0;
+	display: block;
+	float: left;
+	background-image: url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0A%3Csvg%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%0A%09%20viewBox%3D%220%200%20305.6%2074.7%22%20enable-background%3D%22new%200%200%20305.6%2074.7%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%3E%0A%09%3Cpath%20fill%3D%22%23F92121%22%20d%3D%22M9.7%2C70.5c0.3-0.9%2C1.4-3.5%2C3.4-7.7l9.5-20.5l12.5-27.2c0.5-1.1%2C0.7-1.9%2C0.7-2.6c0-1.2-0.8-1.7-2.3-1.7%0A%09%09c-3%2C0-5.4%2C1.3-7%2C4c-1.7%2C2.6-2.5%2C5.6-2.5%2C8.8c0%2C1.1%2C0.1%2C2.4%2C0.3%2C3.8c-1.7%2C0-3-0.8-4-2.3s-1.5-3.1-1.5-4.9c0-3.3%2C1.7-6.4%2C5.2-9.2%0A%09%09c3.5-2.8%2C7.1-4.2%2C11-4.2c3.1%2C0%2C5.4%2C1.4%2C6.9%2C4.2c1.5%2C2.8%2C2.3%2C7.9%2C2.3%2C15.4c0%2C3.8-0.3%2C9-0.8%2C15.5c-0.5%2C6.5-0.8%2C10.7-0.8%2C12.6%0A%09%09c2.3-6.8%2C5.8-14.6%2C10.6-23.4c4.8-8.8%2C8.7-15.4%2C11.6-19.8C65.7%2C9.9%2C66.4%2C9%2C67%2C8.5c0.6-0.5%2C1.3-0.8%2C2.2-0.8c0.7%2C0%2C1.9%2C0.3%2C3.5%2C0.9%0A%09%09c-1.7%2C3.7-3.9%2C12-6.5%2C24.7c-2.6%2C12.7-3.9%2C22.6-3.9%2C29.6c0%2C0.7%2C0%2C1.3%2C0%2C1.9c0%2C0.6%2C0.1%2C1%2C0.1%2C1.3c0.1%2C0.3%2C0.2%2C0.8%2C0.3%2C1.2l0.2%2C0.9%0A%09%09c0.1%2C0.2%2C0.2%2C0.5%2C0.4%2C1.1l0.5%2C1.2c-3.3%2C0-5.5-0.7-6.6-2.2c-1.1-1.5-1.6-4.2-1.6-8.1c0-5.3%2C0.6-10.8%2C1.7-16.7%0A%09%09c1.1-5.9%2C2.8-13.1%2C5-21.6c-3.3%2C4.7-7%2C11.5-11%2C20.1c-4%2C8.7-6.9%2C15.8-8.9%2C21.4l-0.5%2C0.2c-0.4%2C0.2-0.7%2C0.2-1.1%2C0.2c-1.7%2C0-2.8-1-3.3-3%0A%09%09c-0.5-2-0.8-5.2-0.8-9.6c0-2.7%2C0.1-7.3%2C0.3-13.7c0.2-6.5%2C0.3-11.2%2C0.3-14.3c0-0.5%2C0-1.3%2C0-2.4c0-1.1%2C0-1.8%2C0-2.3l-4.9%2C11.5%0A%09%09l-4.3%2C10.1l-3.5%2C8.4c-1.3%2C3-2.3%2C5.3-3.1%2C7.1l-2.7%2C5.5c-0.9%2C1.8-1.8%2C3.3-2.4%2C4.3c-0.7%2C1-1.4%2C1.9-2.2%2C2.8c-0.8%2C0.9-1.6%2C1.5-2.3%2C1.8%0A%09%09C11.3%2C70.4%2C10.5%2C70.5%2C9.7%2C70.5z%22/%3E%0A%09%3Cpath%20fill%3D%22%23F92121%22%20d%3D%22M71.3%2C59c0-2.1%2C0.6-4.9%2C1.7-8.3c1.1-3.4%2C2.6-6.6%2C4.5-9.5c1.9-2.9%2C3.8-4.3%2C5.6-4.3c0.7%2C0%2C1.2%2C0.2%2C1.7%2C0.6%0A%09%09s0.7%2C1%2C0.7%2C1.7c0%2C0.7-0.7%2C2.1-2%2C4.3c-1.3%2C2.2-2.7%2C4.7-4%2C7.4c-1.4%2C2.8-2%2C5.2-2%2C7.2c0%2C1.6%2C0.3%2C2.7%2C0.9%2C3.3c0.6%2C0.6%2C1.5%2C0.9%2C2.7%2C0.9%0A%09%09c4.1%2C0%2C8.3-4%2C12.4-12.1l1.2%2C1.3c-1.8%2C4.6-4.2%2C8.2-7%2C10.8c-2.8%2C2.6-5.9%2C3.9-9.1%2C3.9c-2.2%2C0-4-0.7-5.2-2C71.9%2C62.8%2C71.3%2C61.1%2C71.3%2C59%0A%09%09z%20M83.7%2C27.3c0-1.2%2C0.7-2.3%2C2-3.2c1.3-0.9%2C2.8-1.4%2C4.3-1.4c2.3%2C0%2C3.4%2C1%2C3.4%2C2.9c0%2C1.1-0.6%2C2.2-1.8%2C3.2c-1.2%2C1-2.5%2C1.5-3.9%2C1.5%0A%09%09c-1.1%2C0-2-0.3-2.8-0.8C84%2C29.1%2C83.7%2C28.3%2C83.7%2C27.3z%22/%3E%0A%09%3Cpath%20fill%3D%22%23F92121%22%20d%3D%22M91.9%2C52.3c0.4-0.7%2C1-1.8%2C1.6-3.3c0.7-1.5%2C1.3-2.7%2C1.8-3.7c0.5-1%2C1.2-2%2C1.9-3c0.8-1%2C1.7-1.8%2C2.8-2.3%0A%09%09c1.1-0.5%2C2.4-0.8%2C3.8-0.8c2%2C0%2C3.6%2C0.6%2C4.7%2C1.7s2%2C2.8%2C2.6%2C5c5.6-5.5%2C9.1-8.3%2C10.5-8.3c0.4%2C0%2C0.9%2C0.2%2C1.4%2C0.6%0A%09%09c0.5%2C0.4%2C0.9%2C0.9%2C1.2%2C1.5c-1%2C0-2.6%2C1-4.9%2C2.9s-4.8%2C4.4-7.5%2C7.4c0.1%2C0.4%2C0.1%2C1.2%2C0.3%2C2.3c0.1%2C1.2%2C0.3%2C2.3%2C0.4%2C3.3%0A%09%09c0.2%2C1%2C0.4%2C2%2C0.7%2C3.1c0.3%2C1.1%2C0.7%2C1.9%2C1.2%2C2.5c0.5%2C0.6%2C1.2%2C1%2C1.9%2C1c1.6%2C0%2C3.6-1.3%2C5.8-4c2.2-2.6%2C4-5.3%2C5.2-7.9l1.3%2C1.2%0A%09%09c-1.5%2C3.8-3.6%2C7.2-6.4%2C10.1c-2.8%2C2.9-5.5%2C4.3-8.3%2C4.3c-3.7%2C0-6.1-3.2-7.2-9.7c-3.2%2C3.6-6.4%2C7.5-9.6%2C11.5c-0.4%2C0.5-0.9%2C0.7-1.3%2C0.7%0A%09%09c-0.4%2C0-0.8-0.2-1-0.5c-0.3-0.3-0.4-0.7-0.4-1.1c0-2.1%2C3.9-7.2%2C11.8-15.6c-0.3-1.6-0.5-2.8-0.6-3.5c-0.1-0.7-0.3-1.5-0.6-2.4%0A%09%09c-0.3-0.8-0.6-1.4-0.9-1.7c-0.4-0.3-0.8-0.4-1.4-0.4c-0.7%2C0-1.3%2C0.2-2%2C0.6c-0.6%2C0.4-1.3%2C1.1-1.9%2C1.9c-0.6%2C0.9-1.2%2C1.7-1.7%2C2.5%0A%09%09c-0.5%2C0.8-1.1%2C1.9-1.8%2C3.2c-0.7%2C1.3-1.3%2C2.3-1.8%2C3.1L91.9%2C52.3z%22/%3E%0A%09%3Cpath%20fill%3D%22%23F92121%22%20d%3D%22M124.7%2C70.5c0.3-0.9%2C1.4-3.5%2C3.4-7.7l9.5-20.5l12.5-27.2c0.5-1.1%2C0.7-1.9%2C0.7-2.6c0-1.2-0.8-1.7-2.3-1.7%0A%09%09c-3%2C0-5.4%2C1.3-7%2C4c-1.7%2C2.6-2.5%2C5.6-2.5%2C8.8c0%2C1.1%2C0.1%2C2.4%2C0.3%2C3.8c-1.7%2C0-3-0.8-4-2.3s-1.5-3.1-1.5-4.9c0-3.3%2C1.7-6.4%2C5.2-9.2%0A%09%09c3.5-2.8%2C7.1-4.2%2C11-4.2c3.1%2C0%2C5.4%2C1.4%2C6.9%2C4.2c1.5%2C2.8%2C2.3%2C7.9%2C2.3%2C15.4c0%2C3.8-0.3%2C9-0.8%2C15.5c-0.5%2C6.5-0.8%2C10.7-0.8%2C12.6%0A%09%09c2.3-6.8%2C5.8-14.6%2C10.6-23.4c4.8-8.8%2C8.7-15.4%2C11.6-19.8c0.8-1.3%2C1.6-2.2%2C2.1-2.7c0.6-0.5%2C1.3-0.8%2C2.2-0.8c0.7%2C0%2C1.9%2C0.3%2C3.5%2C0.9%0A%09%09c-1.7%2C3.7-3.9%2C12-6.5%2C24.7c-2.6%2C12.7-3.9%2C22.6-3.9%2C29.6c0%2C0.7%2C0%2C1.3%2C0%2C1.9c0%2C0.6%2C0.1%2C1%2C0.1%2C1.3c0.1%2C0.3%2C0.2%2C0.8%2C0.3%2C1.2l0.2%2C0.9%0A%09%09c0.1%2C0.2%2C0.2%2C0.5%2C0.4%2C1.1l0.5%2C1.2c-3.3%2C0-5.5-0.7-6.6-2.2c-1.1-1.5-1.6-4.2-1.6-8.1c0-5.3%2C0.6-10.8%2C1.7-16.7%0A%09%09c1.1-5.9%2C2.8-13.1%2C5-21.6c-3.3%2C4.7-7%2C11.5-11%2C20.1c-4%2C8.7-6.9%2C15.8-8.9%2C21.4l-0.5%2C0.2c-0.4%2C0.2-0.7%2C0.2-1.1%2C0.2c-1.7%2C0-2.8-1-3.3-3%0A%09%09c-0.5-2-0.8-5.2-0.8-9.6c0-2.7%2C0.1-7.3%2C0.3-13.7c0.2-6.5%2C0.3-11.2%2C0.3-14.3c0-0.5%2C0-1.3%2C0-2.4c0-1.1%2C0-1.8%2C0-2.3l-4.9%2C11.5%0A%09%09l-4.3%2C10.1l-3.5%2C8.4c-1.3%2C3-2.3%2C5.3-3.1%2C7.1l-2.7%2C5.5c-0.9%2C1.8-1.8%2C3.3-2.4%2C4.3c-0.7%2C1-1.4%2C1.9-2.2%2C2.8c-0.8%2C0.9-1.6%2C1.5-2.3%2C1.8%0A%09%09C126.3%2C70.4%2C125.5%2C70.5%2C124.7%2C70.5z%22/%3E%0A%09%3Cpath%20fill%3D%22%23F92121%22%20d%3D%22M185.7%2C57.6c0-4.8%2C2.2-9.7%2C6.7-14.8c4.4-5.1%2C9-7.6%2C13.8-7.6c3.9%2C0%2C5.9%2C1.7%2C5.9%2C5.2c0%2C3.8-2.1%2C7.2-6.2%2C10.1%0A%09%09s-8.8%2C4.7-13.9%2C5.2c-0.1%2C0.5-0.2%2C1.1-0.2%2C1.8c0%2C0.5%2C0%2C1%2C0.1%2C1.5c0.1%2C0.5%2C0.3%2C1.1%2C0.6%2C1.9c0.3%2C0.8%2C1%2C1.5%2C1.9%2C2%0A%09%09c0.9%2C0.5%2C2.1%2C0.8%2C3.5%2C0.8c3.2%2C0%2C6.5-1.3%2C9.8-3.9c3.3-2.6%2C6-5.9%2C8.1-9.8l1.6%2C1.3c-2.1%2C4.7-5.1%2C8.5-9%2C11.4c-3.9%2C2.9-8%2C4.3-12.2%2C4.3%0A%09%09c-3.3%2C0-5.9-0.9-7.7-2.7S185.7%2C60.4%2C185.7%2C57.6z%20M192.8%2C52.9c3.1-0.4%2C6.3-1.9%2C9.7-4.6c3.4-2.7%2C5.1-5.4%2C5.1-8.2c0-1-0.5-1.5-1.3-1.5%0A%09%09c-2.3%2C0-4.9%2C1.5-7.6%2C4.6C196%2C46.2%2C194%2C49.4%2C192.8%2C52.9z%22/%3E%0A%09%3Cpath%20fill%3D%22%23F92121%22%20d%3D%22M211.9%2C60.4c0-3.1%2C1.1-6.5%2C3.2-10.2c2.2-3.7%2C5-7%2C8.6-9.6c3.5-2.7%2C7.1-4%2C10.5-4c2.2%2C0%2C4.1%2C0.6%2C5.6%2C1.8%0A%09%09s2.3%2C2.7%2C2.3%2C4.6c0%2C2.4-1.4%2C3.7-4.2%2C3.8c1.8%2C0.6%2C2.7%2C1.3%2C2.7%2C2.3c0%2C0.6-0.7%2C2.2-2.2%2C4.8c-1.5%2C2.5-2.2%2C4.4-2.2%2C5.7%0A%09%09c0%2C1.9%2C0.8%2C2.8%2C2.4%2C2.8c1.5%2C0%2C3.4-1%2C5.6-3.1c2.3-2%2C4.5-5.1%2C6.7-9.2l1.5%2C1.5c-1.9%2C4.4-4.4%2C7.9-7.3%2C10.6c-2.9%2C2.7-5.8%2C4-8.8%2C4%0A%09%09c-2.1%2C0-3.7-0.7-4.8-2.1c-1.1-1.4-1.7-3-1.7-4.8c-2.4%2C2.8-4.4%2C4.9-6.1%2C6.2c-1.7%2C1.3-3.5%2C2-5.4%2C2c-1.8%2C0-3.4-0.6-4.6-1.8%0A%09%09C212.6%2C64.3%2C211.9%2C62.6%2C211.9%2C60.4z%20M218.3%2C60.8c0%2C1.7%2C0.6%2C2.5%2C1.8%2C2.5c0.7%2C0%2C1.4-0.2%2C2.2-0.6c0.8-0.4%2C1.6-1%2C2.5-1.8l2.4-2.4%0A%09%09c0.8-0.8%2C1.7-1.8%2C2.7-3.1l2.3-3l2.3-3.1l1.9-2.6c0.2-0.3%2C0.4-0.4%2C0.7-0.4h0.2l0.2%2C0.1c0.3-0.8%2C0.4-1.8%2C0.4-2.9%0A%09%09c0-2.7-1.1-4.1-3.4-4.1c-3.5%2C0-7%2C2.6-10.7%2C7.7C220.1%2C52.4%2C218.3%2C56.9%2C218.3%2C60.8z%22/%3E%0A%09%3Cpath%20fill%3D%22%23F92121%22%20d%3D%22M249.2%2C57.7c0-4.9%2C1.7-11.4%2C5-19.7c3.3-8.3%2C7-15.6%2C11.1-21.8c4.1-6.2%2C7.1-9.4%2C9-9.4c0.9%2C0%2C1.7%2C0.7%2C2.3%2C2.1%0A%09%09c0.6%2C1.4%2C1%2C2.8%2C1%2C4.2c0%2C2.4-0.9%2C5.9-2.7%2C10.3c-1.8%2C4.5-4.4%2C9.2-7.8%2C14.2c-3.4%2C5-7%2C9-10.7%2C11.9c-0.6%2C3.1-0.9%2C5.5-0.9%2C7.2%0A%09%09c0%2C0.1%2C0%2C0.1%2C0%2C0.2c0%2C3.6%2C1.1%2C5.5%2C3.4%2C5.5c1.8%2C0%2C3.8-1.2%2C5.9-3.7c2.1-2.5%2C3.9-5.4%2C5.5-8.9l1.9%2C1c-2.3%2C4.8-4.9%2C8.5-7.6%2C11.1%0A%09%09c-2.8%2C2.6-5.7%2C4-8.7%2C4C251.5%2C66%2C249.2%2C63.3%2C249.2%2C57.7z%20M257.8%2C44.7c4.2-4.6%2C7.9-10.1%2C11.2-16.7c3.3-6.5%2C5-11.2%2C5-14%0A%09%09c-0.7%2C0-2%2C1.5-4%2C4.6c-2%2C3.1-4.2%2C7.1-6.5%2C12C261.1%2C35.5%2C259.3%2C40.2%2C257.8%2C44.7z%22/%3E%0A%09%3Cpath%20fill%3D%22%23F92121%22%20d%3D%22M266.9%2C57c0-1.8%2C0.3-3.2%2C1-4.2c0.7-0.9%2C1.5-1.6%2C2.5-2.1c1-0.4%2C1.6-0.7%2C1.7-0.8c3.3-3.5%2C5.9-7.1%2C7.6-10.8%0A%09%09v-0.8c0-3.8%2C1.2-5.8%2C3.6-5.8c1.2%2C0%2C1.8%2C0.5%2C1.9%2C1.6c0%2C0.2-0.1%2C0.5-0.2%2C1.1c-0.1%2C0.6-0.2%2C1.2-0.2%2C1.7c0%2C1.4%2C0.8%2C4.3%2C2.3%2C8.6%0A%09%09c1.5%2C4.3%2C2.3%2C7.7%2C2.3%2C10.2c0%2C0.9-0.1%2C2-0.3%2C3.2c3.6-0.9%2C6.7-3.9%2C9.3-8.9l0.9%2C0.7c-2.2%2C6.3-5.8%2C9.8-11%2C10.6%0A%09%09c-0.8%2C2.1-2.2%2C3.7-4.1%2C4.8c-1.9%2C1.1-4.1%2C1.6-6.6%2C1.6c-3.7%2C0-6.4-1.1-8.1-3.2C267.7%2C62.5%2C266.9%2C59.9%2C266.9%2C57z%20M271.2%2C57%0A%09%09c0%2C1.9%2C0.5%2C3.6%2C1.6%2C5c1%2C1.4%2C2.5%2C2.2%2C4.3%2C2.2c2.3%2C0%2C4-1%2C5.1-3.1c-2.1-0.4-3.9-1.2-5.7-2.4c-1.7-1.2-3.1-2.5-4.2-3.8%0A%09%09C271.6%2C55.1%2C271.2%2C55.8%2C271.2%2C57z%20M273.5%2C52.1c0.9%2C1.5%2C2.2%2C2.9%2C3.8%2C4.1c1.6%2C1.2%2C3.5%2C2.1%2C5.5%2C2.6c0.2-0.5%2C0.2-1.3%2C0.2-2.4%0A%09%09c0-1.1-0.1-2.3-0.3-3.7c-0.2-1.3-0.4-2.4-0.6-3.2c-0.2-0.8-0.5-2.1-1-3.9c-0.5-1.8-0.8-3-0.9-3.4C277.7%2C46.7%2C275.5%2C50%2C273.5%2C52.1z%22%0A%09%09/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+}
+
+@media (max-width: 767px) {
+	.logo {
+		float: none;
+		margin: 15px auto 0 auto;
+	}
+}
